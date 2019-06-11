@@ -60,11 +60,11 @@ class Node:
         self.split_dim = split_dimension
         #self.gain = self.impurity/split_cost
 
-        left_indices = np.argwhere(self.data[:, split_dimension] < split_threshold)
+        left_indices = np.argwhere(self.data[:, split_dimension] <= split_threshold)
         left_data = self.data[left_indices[:, 0], :]
         left_labels = self.labels[left_indices[:, 0], 0]
         left_labels = np.atleast_2d(left_labels).T
-        right_indices = np.argwhere(self.data[:, split_dimension] >= split_threshold)
+        right_indices = np.argwhere(self.data[:, split_dimension] > split_threshold)
         right_data = self.data[right_indices[:, 0], :]
         right_labels = self.labels[right_indices[:,0], 0]
         right_labels = np.atleast_2d(right_labels).T
@@ -72,13 +72,13 @@ class Node:
         #print("LEFT DATA SIZE", left_data.shape)
         #print("RIGHT DATA SIZE", right_data.shape)
 
-        if left_data.shape[0] > 1:
+        if left_data.shape[0] > 0:
             self.left_child = Node(data=left_data,
                                    labels=left_labels,
                                    impurity_metric=self.impurity_metric,
                                    depth=self.depth+1,
                                    max_depth=self.max_depth)
-        if right_data.shape[0] > 1:
+        if right_data.shape[0] > 0:
             self.right_child = Node(data=right_data,
                                 labels=right_labels,
                                 impurity_metric=self.impurity_metric,
@@ -101,6 +101,8 @@ class Node:
                 best_dimension = dim
                 best_threshold = cur_thresh
 
+        if not best_threshold:
+            print('h')
         return best_dimension, best_threshold, best_impurity
 
     def single_dim_split(self, dim: int, indices: np.ndarray):
@@ -121,14 +123,14 @@ class Node:
             return (sum(left_values)/total)*g_left + (sum(right_values)/total)*g_right
 
         for i in range(1, self.n):
+            left_val = self.data[indices[i-1, 0], dim]
+            right_val = self.data[indices[i, 0], dim]
             left_label_counts[self.labels[indices[i-1, 0], 0]] += 1
             right_label_counts[self.labels[indices[i-1, 0], 0]] -= 1
             cost = mini_gini(left_label_counts, right_label_counts)
             #print("COST, BST_IMPUR",cost, best_impurtiy, i)
             if cost < best_impurtiy:
                 best_impurtiy = cost
-                left_val = self.data[indices[i-1, 0], dim]
-                right_val = self.data[indices[i, 0], dim]
                 best_threshold = (left_val+right_val)/2
 
         return best_impurtiy, best_threshold
