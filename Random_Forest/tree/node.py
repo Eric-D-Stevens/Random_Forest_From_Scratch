@@ -7,17 +7,18 @@ class Node:
                  labels: np.ndarray,
                  impurity_metric: str = 'gini',
                  depth: int = 0,
-                 max_depth: int = 10):
+                 max_depth: int = 10,
+                 min_node_points = 1):
 
         # node instance attributes
+        self.terminal = False
         self.n = data.shape[0]
         self.data = data
         self.labels = labels
         self.impurity_metric = impurity_metric
         self.depth = depth
         self.max_depth = max_depth
-        #print("CURRENT DEPTH: ", self.depth)
-
+        self.min_node_points = min_node_points
 
         # spawn dependent
         self.left_child = None
@@ -32,6 +33,11 @@ class Node:
 
         self.class_count_dict = {l:c for l,c in zip(self.class_labels, self.class_counts)}
 
+        # used for predict
+        self.best_label = max(self.class_count_dict)
+        self.best_percent = self.class_count_dict[self.best_label]/sum(self.class_counts)
+
+
         # obtain impurity (possibly refactor to dict based single line)
         if self.impurity_metric == 'gini':
             self.impurity = self.calc_gini()
@@ -43,14 +49,7 @@ class Node:
         if self.depth < self.max_depth:
             self.split_dim, self.split_threshold, self.gain = self.spawn_children()
 
-
-        #print("LEFT CHILD {} at depth {}".format(self.left_child, self.depth))
-        #print("RIGHT CHILD {} at depth {}".format(self.right_child, self.depth))
-
-
-
     def calc_gini(self) -> float:
-        """:return: Gini impurity of the node"""
         return 1. - np.sum(np.square(self.class_counts/self.n))
 
     def spawn_children(self):
@@ -58,7 +57,6 @@ class Node:
         split_dimension, split_threshold, split_cost = self.find_split()
         self.split_threshold = split_threshold
         self.split_dim = split_dimension
-        #self.gain = self.impurity/split_cost
 
         left_indices = np.argwhere(self.data[:, split_dimension] <= split_threshold)
         left_data = self.data[left_indices[:, 0], :]
@@ -68,22 +66,26 @@ class Node:
         right_data = self.data[right_indices[:, 0], :]
         right_labels = self.labels[right_indices[:,0], 0]
         right_labels = np.atleast_2d(right_labels).T
-        print(right_data.shape)
-        #print("LEFT DATA SIZE", left_data.shape)
-        #print("RIGHT DATA SIZE", right_data.shape)
+
+        # implement least points in leaf node
+        if len(left_indices) < self.min_node_points or \
+                len(right_indices) < self.min_node_points:
+                return None, None, None
 
         if left_data.shape[0] > 0:
             self.left_child = Node(data=left_data,
                                    labels=left_labels,
                                    impurity_metric=self.impurity_metric,
                                    depth=self.depth+1,
-                                   max_depth=self.max_depth)
+                                   max_depth=self.max_depth,
+                                   min_node_points=self.min_node_points)
         if right_data.shape[0] > 0:
             self.right_child = Node(data=right_data,
                                 labels=right_labels,
                                 impurity_metric=self.impurity_metric,
                                 depth=self.depth+1,
-                                max_depth=self.max_depth)
+                                max_depth=self.max_depth,
+                                min_node_points=self.min_node_points)
 
         return split_dimension, split_threshold, split_cost
 
@@ -134,8 +136,4 @@ class Node:
                 best_threshold = (left_val+right_val)/2
 
         return best_impurtiy, best_threshold
-
-
-
-
 

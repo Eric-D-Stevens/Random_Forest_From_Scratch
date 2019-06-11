@@ -35,11 +35,11 @@ sk_tree_source.render()
 
 
 # my tree class
-t = Tree(max_depth=max_depth)
+t = Tree(max_depth=max_depth, min_node_points=6)
 Xme = X
 Yme = np.atleast_2d(y).T
 t.train(Xme, Yme)
 
 build_graph(t)
-print("OH YEAH")
-print(folder)
+
+print(t.predict(np.array([1,7])))

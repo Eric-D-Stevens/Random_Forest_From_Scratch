@@ -3,9 +3,12 @@ from tree.node import Node
 
 class Tree:
 
-    def __init__(self, max_depth: int = 10):
+    def __init__(self,
+                 max_depth: int = 10,
+                 min_node_points = 1):
         self.head = None
         self.max_depth = max_depth
+        self.min_node_points = min_node_points
         self.traied = False
 
     def train(self, x: np.ndarray, y: np.ndarray):
@@ -14,7 +17,8 @@ class Tree:
 
         self.head = Node(data=x,
                          labels=y,
-                         max_depth=self.max_depth)
+                         max_depth=self.max_depth,
+                         min_node_points=self.min_node_points)
 
 
     def predict(self, x: np.ndarray):
@@ -32,9 +36,9 @@ class Tree:
             return class_precition, percent
 
         else:
-            if x[0, node.split_dim] < node.split_threshold:
+            if x[node.split_dim] < node.split_threshold:
                 return self.get_prediction(node.left_child, x)
-            elif x[0,node.split_dim] >= node.split_threshold:
+            elif x[node.split_dim] >= node.split_threshold:
                 return self.get_prediction(node.right_child, x)
 
 
