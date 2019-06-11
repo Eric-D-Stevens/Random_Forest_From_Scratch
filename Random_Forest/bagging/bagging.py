@@ -58,7 +58,7 @@ class _Bag:
                  bootstrap_features: bool):
 
         # determine how many features will be used
-        self.n_features = np.random.randint(low=1, high=max_features)
+        self.n_features = np.random.randint(low=1, high=max_features+1)
 
         # get the features
         self.features = np.random.choice(range(num_features),

@@ -34,7 +34,7 @@ class Node:
         self.class_count_dict = {l:c for l,c in zip(self.class_labels, self.class_counts)}
 
         # used for predict
-        self.best_label = max(self.class_count_dict)
+        self.best_label = max(self.class_count_dict, key=self.class_count_dict.get)
         self.best_percent = self.class_count_dict[self.best_label]/sum(self.class_counts)
 
 
@@ -42,7 +42,7 @@ class Node:
         if self.impurity_metric == 'gini':
             self.impurity = self.calc_gini()
 
-        print("IMPURITY:", self.impurity)
+        #print("IMPURITY:", self.impurity)
         if self.impurity == 0.0:
             return
 

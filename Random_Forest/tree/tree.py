@@ -6,6 +6,7 @@ class Tree:
     def __init__(self,
                  max_depth: int = 10,
                  min_node_points = 1):
+
         self.head = None
         self.max_depth = max_depth
         self.min_node_points = min_node_points
