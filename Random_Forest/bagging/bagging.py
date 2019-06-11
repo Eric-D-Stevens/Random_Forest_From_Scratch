@@ -42,7 +42,8 @@ class Bagging:
         assert(bag_index < len(self.bag_list))
         bag = self.bag_list[bag_index]
 
-        bag_data = self.data[bag.indices, bag.features]
+        rows = np.atleast_2d(bag.indices).T
+        bag_data = self.data[rows, bag.features]
         bag_labels = self.labels[bag.indices]
 
         return bag_data, bag_labels, bag.features

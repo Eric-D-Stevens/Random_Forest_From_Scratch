@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c549395e-993b-4947-a365-58e9242561f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bagging/bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/bagging/bagging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/bagging_tests/test_bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/bagging_tests/test_bagging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/tree_tests/images/my_tree.gv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/tree_tests/images/my_tree.gv.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/tree_tests/images/skl_tree.gv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/tree_tests/images/skl_tree.gv.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree/node.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/node.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree/tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree/tree_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/tree_graph.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +27,7 @@
               <entry file="file://$PROJECT_DIR$/tree/tree.py">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="440">
-                    <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+                    <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
                     <folding>
                       <element signature="e#0#18#0" expanded="true" />
                     </folding>
@@ -30,16 +35,16 @@
                 </provider>
               </entry>
             </file>
-            <file pinned="false" current-in-tab="false">
+            <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/bagging/bagging.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="286">
-                    <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+                  <state relative-caret-position="594">
+                    <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/tree/node.py">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="682">
@@ -58,7 +63,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/bagging_tests/test_bagging.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="302">
@@ -82,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+            <state relative-caret-position="293">
+              <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -95,13 +100,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/tree_tests/images/skl_tree.gv.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/tree_tests/images/my_tree.gv.png">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/tree/tree_graph.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -134,11 +141,12 @@
         <option value="$PROJECT_DIR$/test/test_tree.py" />
         <option value="$PROJECT_DIR$/test/test_sklearn_decisiontree.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/test/bagging_tests/test_bagging.py" />
-        <option value="$PROJECT_DIR$/bagging/bagging.py" />
         <option value="$PROJECT_DIR$/tree/tree.py" />
-        <option value="$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py" />
         <option value="$PROJECT_DIR$/tree/node.py" />
+        <option value="$PROJECT_DIR$/tree/tree_graph.py" />
+        <option value="$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py" />
+        <option value="$PROJECT_DIR$/bagging/bagging.py" />
+        <option value="$PROJECT_DIR$/test/bagging_tests/test_bagging.py" />
       </list>
     </option>
   </component>
@@ -164,25 +172,7 @@
             <path>
               <item name="Random_Forest" type="b2602c69:ProjectViewProjectNode" />
               <item name="Random_Forest" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Random_Forest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Random_Forest" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="tree_tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Random_Forest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Random_Forest" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="tree_tests" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Random_Forest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Random_Forest" type="462c0819:PsiDirectoryNode" />
-              <item name="tree" type="462c0819:PsiDirectoryNode" />
+              <item name="bagging" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -208,7 +198,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_sklearn_decisiontree (1)">
+  <component name="RunManager" selected="Python.test_bagging">
     <configuration name="test_bagging" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Random_Forest" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -323,9 +313,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_bagging" />
         <item itemvalue="Python.test_sklearn_decisiontree (1)" />
         <item itemvalue="Python.test_sklearn_decisiontree" />
-        <item itemvalue="Python.test_bagging" />
         <item itemvalue="Python.test_hand" />
         <item itemvalue="Python.test_tree" />
       </list>
@@ -370,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560241628704</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finishing">
+      <created>1560276907766</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1560276907766</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -384,15 +381,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="934" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49536178" visible="true" weight="0.165786" />
       <window_info id="Structure" order="1" sideWeight="0.5020747" side_tool="true" weight="0.165786" />
       <window_info id="Favorites" order="2" sideWeight="0.5009276" side_tool="true" weight="0.165786" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29140723" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39975095" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29140723" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39975095" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
@@ -437,6 +433,17 @@
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
               </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="bagging" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
               <option name="COLUMN_ORDER">
                 <list>
                   <option value="0" />
@@ -450,13 +457,34 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="bagging" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Change Venv for repo" />
     <MESSAGE value="add readme" />
     <MESSAGE value="start bagging" />
     <MESSAGE value="complete bagging functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete bagging functions" />
+    <MESSAGE value="finishing" />
+    <option name="LAST_COMMIT_MESSAGE" value="finishing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -468,7 +496,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test/bagging_tests/test_bagging.py</url>
-          <line>24</line>
+          <line>27</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
@@ -510,37 +538,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/bagging_tests/test_bagging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tree/tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
-          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bagging/bagging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -551,6 +552,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
           <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tree/tree_graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bagging/bagging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/bagging_tests/test_bagging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

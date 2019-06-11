@@ -2,14 +2,14 @@ from tree.tree import Tree
 from tree.node import Node
 from graphviz import Digraph
 
-def build_graph(tree: Tree):
+def build_graph(tree: Tree, path: str):
 
     node_attr = [('shape', 'box'), ('style', 'filled, rounded'),
                  ('fontname', 'helvetica')] ;
 
     graph = Digraph('DTree',
                     filename='my_tree.gv',
-                    directory='tree_tests\images',
+                    directory=path,
                     format='png',
                     node_attr=node_attr
                     )

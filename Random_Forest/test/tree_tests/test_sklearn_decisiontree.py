@@ -40,6 +40,6 @@ Xme = X
 Yme = np.atleast_2d(y).T
 t.train(Xme, Yme)
 
-build_graph(t)
+build_graph(t, '.\images')
 
 print(t.predict(np.array([1,7])))
