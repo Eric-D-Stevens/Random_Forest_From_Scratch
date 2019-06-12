@@ -103,8 +103,6 @@ class Node:
                 best_dimension = dim
                 best_threshold = cur_thresh
 
-        if not best_threshold:
-            print('h')
         return best_dimension, best_threshold, best_impurity
 
     def single_dim_split(self, dim: int, indices: np.ndarray):

@@ -40,6 +40,7 @@ class Forest:
         # plant a forest
         self.tree_bag = []
         for i in range(len(self.bag.bag_list)):
+            print("Training Tree {} / {}".format(i, self.n_trees))
             b_data, b_labels, b_features = self.bag.get_bag(i)
             self.tree_bag.append(_TreeBag(features=b_features,
                                           data=b_data,

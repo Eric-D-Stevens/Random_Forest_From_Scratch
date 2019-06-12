@@ -28,9 +28,9 @@ class Tree:
 
 
     def get_prediction(self, node, x: np.ndarray):
-        print("XSIZE", x.size)
+        #print("XSIZE", x.size)
         if node.split_threshold == None:
-            print(node.class_count_dict)
+            #print(node.class_count_dict)
             class_precition = max(node.class_count_dict,
                                   key=node.class_count_dict.get)
             percent = node.class_count_dict[class_precition]/node.n

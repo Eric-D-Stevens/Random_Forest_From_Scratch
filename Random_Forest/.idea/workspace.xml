@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c549395e-993b-4947-a365-58e9242561f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/forest/forest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/tree_tests/forest/test_forest_training.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validation/random_forest_validation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validation/validate_breast_cancer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validation/validate_iris.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validation/validate_mnist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bagging/bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/bagging/bagging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/notes.odt" beforeDir="false" afterPath="$PROJECT_DIR$/report/notes.odt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forest/forest.py" beforeDir="false" afterPath="$PROJECT_DIR$/forest/forest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/tree_tests/forest/test_forest_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/forest_tests/test_forest_training.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tree/node.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/node.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tree/tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/tree.py" afterDir="false" />
     </list>
@@ -22,19 +24,24 @@
         <state>
           <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/tree/tree.py">
+              <entry file="file://$PROJECT_DIR$/test/forest_tests/test_forest_training.py">
                 <provider selected="true" editor-type-id="text-editor">
                   <state>
-                    <caret column="7" selection-start-column="7" selection-end-column="7" />
+                    <folding>
+                      <element signature="e#0#18#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
             </file>
             <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/tree/node.py">
+              <entry file="file://$PROJECT_DIR$/validation/random_forest_validation.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state>
-                    <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+                  <state relative-caret-position="726">
+                    <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+                    <folding>
+                      <element signature="e#0#18#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -42,8 +49,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/forest/forest.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="880">
-                    <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+                  <state relative-caret-position="726">
+                    <caret line="42" column="63" selection-start-line="42" selection-start-column="63" selection-end-line="42" selection-end-column="63" />
                     <folding>
                       <element signature="e#0#18#0" expanded="true" />
                     </folding>
@@ -62,10 +69,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/bagging_tests/test_bagging.py">
+        <entry file="file://$PROJECT_DIR$/validation/validate_iris.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="330">
+              <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -74,40 +81,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/forest/forest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1716">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/tree_tests/forest/test_forest_training.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="1146" selection-start-line="1146" selection-end-line="1146" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py">
+        <entry file="file://$PROJECT_DIR$/validation/validate_mnist.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
@@ -117,14 +91,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tree/tree_graph.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/validation/validate_breast_cancer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+              <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tree/node.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="105" selection-start-line="105" selection-end-line="105" />
             </state>
           </provider>
         </entry>
@@ -161,12 +144,16 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/tree/tree_graph.py" />
         <option value="$PROJECT_DIR$/test/bagging_tests/test_bagging.py" />
-        <option value="$PROJECT_DIR$/tree/tree.py" />
         <option value="$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py" />
-        <option value="$PROJECT_DIR$/tree/node.py" />
         <option value="$PROJECT_DIR$/bagging/bagging.py" />
-        <option value="$PROJECT_DIR$/forest/forest.py" />
         <option value="$PROJECT_DIR$/test/tree_tests/forest/test_forest_training.py" />
+        <option value="$PROJECT_DIR$/tree/tree.py" />
+        <option value="$PROJECT_DIR$/validation/random_forest_validation.py" />
+        <option value="$PROJECT_DIR$/validation/validate_mnist.py" />
+        <option value="$PROJECT_DIR$/tree/node.py" />
+        <option value="$PROJECT_DIR$/forest/forest.py" />
+        <option value="$PROJECT_DIR$/validation/validate_iris.py" />
+        <option value="$PROJECT_DIR$/validation/validate_breast_cancer.py" />
       </list>
     </option>
   </component>
@@ -192,7 +179,17 @@
             <path>
               <item name="Random_Forest" type="b2602c69:ProjectViewProjectNode" />
               <item name="Random_Forest" type="462c0819:PsiDirectoryNode" />
-              <item name="bagging" type="462c0819:PsiDirectoryNode" />
+              <item name="forest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Random_Forest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Random_Forest" type="462c0819:PsiDirectoryNode" />
+              <item name="tree" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Random_Forest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Random_Forest" type="462c0819:PsiDirectoryNode" />
+              <item name="validation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -206,6 +203,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Eric\Desktop\Random_Forest_Git\Random_Forest\test\" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -218,8 +220,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_forest_training">
-    <configuration name="test_bagging" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.validate_breast_cancer">
+    <configuration name="test_forest_training (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Random_Forest" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -227,11 +229,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/bagging_tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/forest_tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/bagging_tests/test_bagging.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/forest_tests/test_forest_training.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -261,7 +263,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_hand" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="validate_breast_cancer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Random_Forest" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -269,11 +271,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/validation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test_hand.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/validation/validate_breast_cancer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -282,7 +284,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_sklearn_decisiontree (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="validate_iris" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Random_Forest" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -290,11 +292,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/tree_tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/validation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/validation/validate_iris.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -303,7 +305,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_sklearn_decisiontree" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="validate_mnist" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Random_Forest" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -311,11 +313,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/validation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test_sklearn_decisiontree.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/validation/validate_mnist.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -325,19 +327,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.test_hand" />
-      <item itemvalue="Python.test_sklearn_decisiontree" />
-      <item itemvalue="Python.test_bagging" />
-      <item itemvalue="Python.test_sklearn_decisiontree (1)" />
       <item itemvalue="Python.test_forest_training" />
+      <item itemvalue="Python.test_forest_training (1)" />
+      <item itemvalue="Python.validate_iris" />
+      <item itemvalue="Python.validate_mnist" />
+      <item itemvalue="Python.validate_breast_cancer" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.validate_breast_cancer" />
+        <item itemvalue="Python.validate_mnist" />
+        <item itemvalue="Python.validate_iris" />
+        <item itemvalue="Python.test_forest_training (1)" />
         <item itemvalue="Python.test_forest_training" />
-        <item itemvalue="Python.test_bagging" />
-        <item itemvalue="Python.test_sklearn_decisiontree (1)" />
-        <item itemvalue="Python.test_sklearn_decisiontree" />
-        <item itemvalue="Python.test_hand" />
       </list>
     </recent_temporary>
   </component>
@@ -394,7 +396,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560279655705</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="working random forest predictor">
+      <created>1560290310636</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1560290310636</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -513,7 +522,8 @@
     <MESSAGE value="complete bagging functions" />
     <MESSAGE value="finishing" />
     <MESSAGE value="test bagging" />
-    <option name="LAST_COMMIT_MESSAGE" value="test bagging" />
+    <MESSAGE value="working random forest predictor" />
+    <option name="LAST_COMMIT_MESSAGE" value="working random forest predictor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -557,23 +567,6 @@
     <entry file="file://$PROJECT_DIR$/test/tree_tests/images/my_tree.gv.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/bagging_tests/test_bagging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tree/tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/tree_tests/test_tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -584,9 +577,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py">
+    <entry file="file://$PROJECT_DIR$/bagging/bagging.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="499">
+          <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/bagging_tests/test_bagging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -600,6 +601,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/tree_tests/test_sklearn_decisiontree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tree/tree_graph.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -610,34 +620,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bagging/bagging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tree/node.py">
+    <entry file="file://$PROJECT_DIR$/test/forest_tests/test_forest_training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forest/forest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1716">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/tree_tests/forest/test_forest_training.py">
+    <entry file="file://$PROJECT_DIR$/tree/tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        <state relative-caret-position="858">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validation/random_forest_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tree/node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forest/forest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="42" column="63" selection-start-line="42" selection-start-column="63" selection-end-line="42" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validation/validate_iris.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validation/validate_mnist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validation/validate_breast_cancer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
