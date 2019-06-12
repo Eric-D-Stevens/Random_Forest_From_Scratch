@@ -12,7 +12,7 @@ validate_random_forest(data=X,
                        n_trees=30,
                        max_features=3,
                        bootstrap_features=True,
-                       max_depth=9,
+                       max_depth=4,
                        min_leaf_points=5,
                        train_percent=.75)
 
