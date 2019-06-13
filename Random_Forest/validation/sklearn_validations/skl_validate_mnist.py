@@ -12,10 +12,10 @@ y = digits.target
 X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     train_size=.75)
 
-clf = RandomForestClassifier(n_estimators=500,
+clf = RandomForestClassifier(n_estimators=100,
                              max_depth=8,
                              min_samples_leaf=5,
-                             max_features=40,
+                             max_features=10,
                              n_jobs=-1
                              )
 clf.fit(X_train, y_train)

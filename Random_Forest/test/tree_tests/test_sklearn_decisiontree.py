@@ -15,7 +15,7 @@ X = iris.data[:, 2:]
 y = iris.target
 
 # declare shared hyper parameters
-max_depth = 3
+max_depth = 10
 
 
 tree_clf = DecisionTreeClassifier(max_depth=max_depth)
@@ -35,7 +35,7 @@ sk_tree_source.render()
 
 
 # my tree class
-t = Tree(max_depth=max_depth, min_node_points=6)
+t = Tree(max_depth=max_depth, min_node_points=1)
 Xme = X
 Yme = np.atleast_2d(y).T
 t.train(Xme, Yme)
