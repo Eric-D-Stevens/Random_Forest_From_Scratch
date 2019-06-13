@@ -11,9 +11,9 @@ y = np.atleast_2d(iris.target).T
 
 validate_random_forest(data=X,
                        labels=y,
-                       n_trees=100,
-                       max_features=10,
+                       n_trees=10,
+                       max_features=30,
                        bootstrap_features=False,
-                       max_depth=8,
-                       min_leaf_points=5,
+                       max_depth=15,
+                       min_leaf_points=8,
                        train_percent=.75)

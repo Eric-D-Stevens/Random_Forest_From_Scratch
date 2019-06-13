@@ -1,6 +1,7 @@
 import numpy as np
 from tree.node import Node
 
+
 class Tree:
 
     def __init__(self,
@@ -21,21 +22,15 @@ class Tree:
                          max_depth=self.max_depth,
                          min_node_points=self.min_node_points)
 
-
     def predict(self, x: np.ndarray):
         return self.get_prediction(self.head, x)
 
-
-
     def get_prediction(self, node, x: np.ndarray):
-        #print("XSIZE", x.size)
         if node.split_threshold == None:
-            #print(node.class_count_dict)
             class_precition = max(node.class_count_dict,
                                   key=node.class_count_dict.get)
             percent = node.class_count_dict[class_precition]/node.n
             return class_precition, percent
-
         else:
             if x[node.split_dim] < node.split_threshold:
                 return self.get_prediction(node.left_child, x)

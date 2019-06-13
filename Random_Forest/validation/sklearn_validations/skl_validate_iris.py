@@ -12,9 +12,9 @@ y = iris.target
 X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     train_size=.75)
 
-clf = RandomForestClassifier(n_estimators=30,
+clf = RandomForestClassifier(n_estimators=70,
                              max_depth=4,
-                             min_samples_leaf=5,
+                             min_samples_leaf=3,
                              max_features=3,
                              )
 clf.fit(X_train, y_train)
@@ -29,10 +29,12 @@ train_acc = accuracy_score(y_train, y_train_pred)
 test_acc = accuracy_score(y_test, y_test_pred)
 
 print("")
+print("scikit-learn")
+print("")
 print("Training")
 print(train_conf_mtx)
 print("Train Accuracy:", train_acc)
 print("")
 print("Testing")
-print(train_conf_mtx)
+print(test_conf_mtx)
 print("Test Accuracy:", test_acc)

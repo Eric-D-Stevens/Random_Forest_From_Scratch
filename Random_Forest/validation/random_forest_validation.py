@@ -39,9 +39,13 @@ def validate_random_forest(data: np.ndarray,
     test_confusion, test_accuracy = _get_confusion(forest, X_test, y_test)
 
     print("")
+    print("my-forest")
+    print("")
+    print("Training")
     print(train_confusion)
     print("train accuracy:", train_accuracy)
     print("")
+    print("Testing")
     print(test_confusion)
     print("test accuracy:", test_accuracy)
 
