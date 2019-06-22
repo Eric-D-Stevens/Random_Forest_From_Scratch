@@ -15,7 +15,7 @@ X = iris.data[:, 2:]
 y = iris.target
 
 # declare shared hyper parameters
-max_depth = 10
+max_depth = 100
 
 
 tree_clf = DecisionTreeClassifier(max_depth=max_depth)

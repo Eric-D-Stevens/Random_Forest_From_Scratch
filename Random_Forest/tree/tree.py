@@ -1,4 +1,6 @@
 import numpy as np
+import sys
+print(sys.path)
 from tree.node import Node
 
 
