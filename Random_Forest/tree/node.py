@@ -120,6 +120,8 @@ class Node:
         # the threshold that on that dimension that will reduce impurity
         # the most, and the resulting impurity (split_cost)
         split_dimension, split_threshold, split_cost = self.find_split()
+        if split_threshold == None:
+            return None,None,None
         self.split_threshold = split_threshold
         self.split_dim = split_dimension
 
@@ -135,26 +137,27 @@ class Node:
         right_labels = np.atleast_2d(right_labels).T
 
         # Regularization: implement least points in leaf node
-        if len(left_indices) < self.min_node_points or \
-                len(right_indices) < self.min_node_points:
-                return None, None, None
+        if self.n > self.min_node_points:
+        #if len(left_indices) < self.min_node_points or \
+        #        len(right_indices) < self.min_node_points:
+        #        return None, None, None
 
-        # spawn left child
-        if left_data.shape[0] > 0:
-            self.left_child = Node(data=left_data,
-                                   labels=left_labels,
-                                   impurity_metric=self.impurity_metric,
-                                   depth=self.depth+1,
-                                   max_depth=self.max_depth,
-                                   min_node_points=self.min_node_points)
-        # spawn right child
-        if right_data.shape[0] > 0:
-            self.right_child = Node(data=right_data,
-                                labels=right_labels,
-                                impurity_metric=self.impurity_metric,
-                                depth=self.depth+1,
-                                max_depth=self.max_depth,
-                                min_node_points=self.min_node_points)
+                    # spawn left child
+            if left_data.shape[0] > 0:
+                self.left_child = Node(data=left_data,
+                                       labels=left_labels,
+                                       impurity_metric=self.impurity_metric,
+                                       depth=self.depth + 1,
+                                       max_depth=self.max_depth,
+                                       min_node_points=self.min_node_points)
+            # spawn right child
+            if right_data.shape[0] > 0:
+                self.right_child = Node(data=right_data,
+                                        labels=right_labels,
+                                        impurity_metric=self.impurity_metric,
+                                        depth=self.depth + 1,
+                                        max_depth=self.max_depth,
+                                        min_node_points=self.min_node_points)
 
         return split_dimension, split_threshold, split_cost
 
@@ -220,7 +223,7 @@ class Node:
 
         # return param init
         best_threshold = None
-        best_impurtiy = 1.
+        best_impurity = 1.
 
         # function to quickly get impurity of combined two data sets
         def mini_gini(left_dict, right_dict):
@@ -240,9 +243,10 @@ class Node:
             cost = mini_gini(left_label_counts, right_label_counts)
 
             # if split results in better purity, keep it
-            if cost < best_impurtiy:
-                best_impurtiy = cost
+            if cost < best_impurity and \
+                    self.min_node_points < i < self.n - self.min_node_points:
+                best_impurity = cost
                 best_threshold = (left_val+right_val)/2
 
-        return best_impurtiy, best_threshold
+        return best_impurity, best_threshold
 

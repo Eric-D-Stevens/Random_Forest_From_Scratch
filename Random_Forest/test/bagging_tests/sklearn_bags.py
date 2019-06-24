@@ -16,7 +16,7 @@ y = iris.target
 
 # declare shared hyper parameters
 max_depth = 100
-min_samples = 1
+min_samples = 10
 
 
 tree_clf = DecisionTreeClassifier(max_depth=max_depth, min_samples_leaf=min_samples)
@@ -29,7 +29,7 @@ sk_tree_graph = export_graphviz(tree_clf,
 # build tree graph for sklearn model
 folder = os.path.dirname(__file__)
 sk_tree_source = Source(sk_tree_graph,
-                        filename='skl_tree.gv',
+                        filename='skl_treebag.gv',
                         directory=folder+'\images',
                         format='png')
 sk_tree_source.render()

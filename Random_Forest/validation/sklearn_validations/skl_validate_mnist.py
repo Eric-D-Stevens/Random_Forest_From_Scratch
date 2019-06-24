@@ -13,9 +13,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     train_size=.75)
 
 clf = RandomForestClassifier(n_estimators=10,
-                             max_depth=12,
-                             min_samples_leaf=5,
-                             max_features=10,
+                             max_depth=15,
+                             min_samples_leaf=8,
+                             max_features=30,
                              n_jobs=-1
                              )
 clf.fit(X_train, y_train)
