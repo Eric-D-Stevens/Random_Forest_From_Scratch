@@ -276,13 +276,16 @@
 
 <td class="c2" colspan="1" rowspan="1">
 
-<span class="c6 c19">class</span><span class="c1 c19"> </span><span class="c30 c19">Tree</span><span class="c1 c19">:</span> <span class="c6 c19">def</span><span class="c1 c19"> </span><span class="c29 c19">__init__</span><span class="c1 c19">(self,  
-               max_depth: int =</span> <span class="c3 c19">10</span><span class="c1 c19">,  
-               min_node_points =</span> <span class="c3 c19">1</span><span class="c1 c19">):</span> <span class="c12 c19">"""  
+'''python
+      def __init__(self,  
+               max_depth: int = 10,  
+               min_node_points = 1):
+      """  
       Instantiates the decision tree model object  
       :param max_depth: maximum depth decision tree can grow  
       :param min_node_points: minimum points a leaf node can contain  
-      """</span>
+      """
+'''
 
 </td>
 
