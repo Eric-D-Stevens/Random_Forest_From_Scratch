@@ -1,14 +1,9 @@
-<span class="c17 c51">Random Forest Classifier</span>
+# <span class="c17 c51">Random Forest Classifier</span>
 
 <span class="c17 c43">Eric D. Stevens</span>
 
-# <span class="c26 c17">Abstract</span>
 
-<span class="c31">This project represents an effort to execute the implementation of a moderately complex general purpose machine learning algorithm as a tool, not an exercise in the practice of data science.</span> <span class="c0">What follows is a description of a programming project in which a  Random Forest classifier is developed in pure Python with only the aid of the NumPy library. The implementation is not intended to work only on a particular dataset, but rather is a general purpose tool that can be applied to any dataset that is formatted properly for input. The source code of the project will be examined in depth. The efficacy of the final product is tested against Scikit-Learn library.  The reader will see that the implementation described exhibits performance characteristics that approach that of the Scikit-Learn implementation of the same learning algorithms.</span>
-
-<span class="c0"></span>
-
-# <span class="c26 c17">Introduction</span>
+# <span class="c26 c17">Overview</span>
 
 <span class="c0">The task of building a Random Forest classification tool that can be applied to any dataset is a moderately substantial task. It first requires that the two underlying algorithms, the Decision Tree learning algorithm and Bagging algorithm, be implemented and working properly. Following these developments, a layer must be added that combines the two, creating an ensemble of decision trees based on the bags generated in the by bagging. This top layer needs to be able to query this ensemble of trees for their classification votes, and output a class prediction based on the tally (soft / hard) of these votes.</span>
 
