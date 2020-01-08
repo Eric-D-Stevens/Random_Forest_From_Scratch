@@ -111,7 +111,9 @@
 
 <span class="c0"></span>
 
-<span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 308.50px; height: 132.52px;">![](images/image23.png)</span>
+<div align="center">
+<img src="images/image23.png">
+</div>
 
 <span class="c0">If a node reaches a Gini impurity of 0 it is considered a terminal node. Otherwise the decision tree will recursively repeat the process of searching for a dimension and threshold to split on, or until it is impossible to partition the data.</span>
 
