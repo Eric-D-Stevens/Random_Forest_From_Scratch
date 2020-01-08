@@ -268,13 +268,6 @@
 
 <a id="t.2ef886ea0b05000ff51c5e81ca2cee91171542d6"></a><a id="t.0"></a>
 
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
 
 '''python
       def __init__(self,  
@@ -287,13 +280,7 @@
       """
 '''
 
-</td>
 
-</tr>
-
-</tbody>
-
-</table>
 
 <span class="c0"></span>
 
