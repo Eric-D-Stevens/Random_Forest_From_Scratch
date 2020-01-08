@@ -78,7 +78,14 @@
 
 <span>Where</span> ![](images/image4.png)<span>is the probability of a given data point being a member of class</span> ![](images/image5.png)<span class="c0"> given the dataset. It can be seen that Gini impurity is minimized when all data points belong to a single class.</span>
 
-### <span class="c35 c17">Learning</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 325.50px; height: 183.54px;">![](images/image27.png)</span>
+<span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 325.50px; height: 183.54px;">![](images/image27.png)</span>
+
+<span class="c0"></span>
+<div align="center">
+<img src="images/image27.png">
+</div>
+
+### <span class="c35 c17">Learning</span>
 
 <span class="c0">The Decision Tree leverages the tree data structure. Each dataset is stored in a node. Learning is performed by searching for a partition of the data that results in a minimum weighted Gini impurity. In decision trees, this partition is done by sliding a threshold across each dimension and calculating the weighted Gini impurity.</span>
 
