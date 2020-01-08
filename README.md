@@ -34,12 +34,11 @@
 <span class="c0">In order to accomplish the goals of the project in an efficient manner, a specific project execution strategy was developed prior to the beginning of the implementation itself. This strategy has both the development of the tool and its verification wrapped into a single pipeline.</span>
 
 <div align="center">
-<span style="text-align: center; overflow: hidden; align: center; display: inline-block; margin: 0.00px auto; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 283.66px; height: 261.50px;"><img src="images/image28.png" align="middle"></span>
+<span style="text-align: center; overflow: hidden; align: center; display: inline-block; margin: 0.00px auto; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 283.66px; height: 261.50px;"><img src="images/image28.png"></span>
 </div>
 
 <span class="c0">In order to enable an efficient process that encompasses both development and verification, Scikit-Learn was leveraged for both its prepackaged datasets and its verified models. When developing the algorithm library, effort was made to replicate the data interface of Scikit-Learn. This allowed datasets to be imported from Scikit-Learn and fed to the developed implementation with minimal manipulation. This also allowed that same data to be fed into the Scikit-Learn implementation of Random Forest, after which the results of the of the two implementation could be prepared.</span>
 
-<span class="c0"></span>
 
 <span>In case this is not obvious, it is important to note that</span> <span class="c31">the implementation of Random Forest executed in this project in no way leverages Scikit-Learn. Scikit-Learn is only used to validate the performance of the developed version of Random Forest.</span> <span class="c0">The only library utilized by the implementation constructed in this project is NumPy. Effort will be made in this write up to point out where, when, and why numpy is being utilized.</span>
 
@@ -57,7 +56,9 @@
 
 <span class="c0"></span>
 
-<span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 264.00px;">![](images/image20.png)</span>
+<div align="center">
+<span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 264.00px;"><img src="images/image20.png"></span>
+</div>
 
 ## <span class="c5"></span>
 
@@ -70,9 +71,9 @@
 <span>There are several different ways that the purity of a dataset can be measured. For the sake of brevity, only one will be discussed in this paper.</span> <span class="c31">Gini impurity</span> <span>is the purity metric that is used in the implementation later in this paper. Given some dataset</span> ![](images/image1.png)<span>, which contains data of</span> ![](images/image2.png)<span class="c0"> distinct class labels, the Gini impurity is given by</span>
 
 <span class="c0"></span>
-
-![](images/image3.png)
-
+<div align="center">
+<img src="images/image3.png">
+</div>
 <span class="c0"></span>
 
 <span>Where</span> ![](images/image4.png)<span>is the probability of a given data point being a member of class</span> ![](images/image5.png)<span class="c0"> given the dataset. It can be seen that Gini impurity is minimized when all data points belong to a single class.</span>
