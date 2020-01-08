@@ -290,45 +290,25 @@
 
 #### <span>Tree.train() : Training the Decision Tree</span>
 
-<span class="c0"></span>
+```python
+    def train(self, x: np.ndarray, y: np.ndarray):
+        """
+        Train the Decision Tree on input data
+        :param x: Matrix with rows as observations and
+            columns as features.
+        :param y: A single column matrix with the same number
+            of rows as the input parameter x
+        """
+        assert(x.shape[0] == y.shape[0])
+        assert(y.shape[1] == 1)
 
-<a id="t.15accc7b8db26251be1871c33ad7bdd1b445cd15"></a><a id="t.1"></a>
+        self.head = Node(data=x,
+                         labels=y,
+                         max_depth=self.max_depth,
+                         min_node_points=self.min_node_points)
 
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c6">def</span><span class="c1"> </span><span class="c29">train</span><span class="c1">(self, x: np.ndarray, y: np.ndarray):  
-       </span><span class="c12">"""  
-       Train the Decision Tree on input data  
-       :param x: Matrix with rows as observations and  
-           columns as features.  
-       :param y: A single column matrix with the same number  
-           of rows as the input parameter x  
-       """</span><span class="c1">  
-       </span><span class="c6">assert</span><span class="c1">(x.shape[</span><span class="c3">0</span><span class="c1">] == y.shape[</span><span class="c3">0</span><span class="c1">])  
-       </span><span class="c6">assert</span><span class="c1">(y.shape[</span><span class="c3">1</span><span class="c1">] ==</span> <span class="c3">1</span><span class="c1">)  
-
-       self.head = Node(data=x,  
-                        labels=y,  
-                        max_depth=self.max_depth,  
-                        min_node_points=self.min_node_points)  
-
-       self.trained =</span> <span class="c6">True</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<span class="c0"></span>
+        self.trained = True
+```
 
 <span>After a</span> <span class="c15">Tree</span> <span>object is initialized, the</span><span class="c15"> train()</span><span>method can be called on an input dataset. The asserts insure that the data is formatted properly which is tricky. The targets,</span> <span class="c15">y</span><span>must be a single column. A member variable</span> <span class="c15">self.head</span><span>is set to</span> <span class="c15">Node()</span><span>.</span> <span class="c15">Node()</span><span class="c0"> is the training engine that builds the tree model. This will be discussed later in this section.</span>
 
@@ -336,35 +316,19 @@
 
 #### <span class="c33 c17">Tree.predict() : making class predictions on a data point</span>
 
-<a id="t.963a765ae9dd59d3c971e2701f99c16392328193"></a><a id="t.2"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c6">def</span><span class="c1"> </span><span class="c29">get_prediction</span><span class="c1">(self, node, x: np.ndarray):  
-       </span><span class="c6">if</span><span class="c1"> </span><span class="c6">not</span><span class="c1">node.right_child</span> <span class="c6">or</span><span class="c1"> </span><span class="c6">not</span><span class="c1"> node.left_child:  
-           class_precition = max(node.class_count_dict,  
-                                 key=node.class_count_dict.get)  
-           percent = node.class_count_dict[class_precition]/node.n  
-           </span><span class="c6">return</span><span class="c1"> class_precition, percent  
-       </span><span class="c6">else</span><span class="c1">:  
-           </span><span class="c6">if</span><span class="c1"> x[node.split_dim] < node.split_threshold:  
-               </span><span class="c6">return</span><span class="c1"> self.get_prediction(node.left_child, x)  
-           </span><span class="c6">elif</span><span class="c1"> x[node.split_dim] >= node.split_threshold:  
-               </span><span class="c6">return</span><span class="c1"> self.get_prediction(node.right_child, x)</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+    def get_prediction(self, node, x: np.ndarray):
+        if not node.right_child or not node.left_child:
+            class_precition = max(node.class_count_dict,
+                                  key=node.class_count_dict.get)
+            percent = node.class_count_dict[class_precition]/node.n
+            return class_precition, percent
+        else:
+            if x[node.split_dim] < node.split_threshold:
+                return self.get_prediction(node.left_child, x)
+            elif x[node.split_dim] >= node.split_threshold:
+                return self.get_prediction(node.right_child, x)
+```
 
 <span class="c0"></span>
 
@@ -388,155 +352,58 @@
 
 <span class="c0"></span>
 
-<a id="t.21a8d48fd47e5107c361672b7f53df5455cdafcb"></a><a id="t.3"></a>
 
-<table class="c7">
+```python
+class Node:
 
-<tbody>
+    def __init__(self,
+                 data: np.ndarray,
+                 labels: np.ndarray,
+                 impurity_metric: str = 'gini',
+                 depth: int = 0,
+                 max_depth: int = 10,
+                 min_node_points = 1):
+```
 
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c6">class</span><span class="c1"> </span><span class="c30">Node</span><span class="c1">:  
-
-   </span><span class="c6">def</span><span class="c1"> </span><span class="c29">__init__</span><span class="c1">(self,  
-                data: np.ndarray,  
-                labels: np.ndarray,  
-                impurity_metric: str =</span> <span class="c12">'gini'</span><span class="c1">,  
-                depth: int =</span> <span class="c3">0</span><span class="c1">,  
-                max_depth: int =</span> <span class="c3">10</span><span class="c1">,  
-                min_node_points =</span> <span class="c3">1</span><span class="c1">):</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<span class="c0"></span>
 
 <span class="c0">The node class is initialized with the variable data which is the training data without the labels and labels, which are the class labels. The impurity metric is there for later if other impurity metrics are added. The depth parameter is the current depth of the node in the tree. This is used to allow children nodes how deep they are. The max_depth is the max depth hyperparameter discussed earlier and the min_node_points is the min samples hyperparameter discussed earlier.</span>
 
-<span class="c0"></span>
-
-<span class="c0">The first thing that occurs is an analysis of a nodes own data:</span>
-
-<a id="t.06282c73f325abf2dd42586be4fad9454a2195ce"></a><a id="t.4"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1">         </span><span class="c21 c19"># class breakdown</span><span class="c1">  
-       self.class_labels, self.class_counts = \  
-           np.unique(self.labels, return_counts=</span><span class="c6">True</span><span class="c1">)</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+         # class breakdown
+        self.class_labels, self.class_counts = \
+            np.unique(self.labels, return_counts=True)
+```
 
 <span class="c0">The call to np.unique returns the unique class labels contained in the datasets as well as their counts as a tuple. This is converted to a dictionary as follows:</span>
 
 <a id="t.f21512e3dc14ae163de5cc8d369d3f9c74751378"></a><a id="t.5"></a>
 
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1">self.class_count_dict = {l:c</span> <span class="c6">for</span><span class="c1">l,c</span> <span class="c6">in</span><span class="c1"> zip(self.class_labels, self.class_counts)}</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+self.class_count_dict = {l:c for l,c in zip(self.class_labels, self.class_counts)}
+```
 
 <span class="c0">From there the with the highest representation and its percentage of representation are recorded.</span>
 
-<a id="t.278c4cb5c97bbded56b927e3ecea54bccf253581"></a><a id="t.6"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c21 c19"># used for predict</span><span class="c1">  
-self.best_label = max(self.class_count_dict, key=self.class_count_dict.get)  
-self.best_percent = self.class_count_dict[self.best_label]/                       sum(self.class_counts)</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+# used for predict
+self.best_label = max(self.class_count_dict, key=self.class_count_dict.get)
+self.best_percent = self.class_count_dict[self.best_label]/                       sum(self.class_counts)
+```
 
 <span class="c0">The node impurity is then calculated with a call the Gini impurity calculation function.</span>
 
-<a id="t.3fadba4334e0a32b8247693c80a095bafabd0808"></a><a id="t.7"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c6">def</span><span class="c1"> </span><span class="c29">calc_gini</span><span class="c1">(self) -> float:</span> <span class="c6">return</span><span class="c1"> </span><span class="c3">1.</span><span class="c1"> - np.sum(np.square(self.class_counts/self.n))</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+def calc_gini(self) -> float:
+   return 1. - np.sum(np.square(self.class_counts/self.n))
+```
 
 <span class="c0">If the impurity of the node is determined to be 0 then a return call is made without declaring any children. If the Gini impurity is not zero then we move on to the following code.</span>
 
-<a id="t.8a3052714f20642c5b74cb19e6f4a17564257286"></a><a id="t.8"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c21 c19"># if a node is not at the max depth, spawn children</span><span class="c1">  
-</span><span class="c6">if</span><span class="c1"> self.depth < self.max_depth:  
-   self.split_dim, self.split_threshold, self.gain = self.spawn_children()</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+# if a node is not at the max depth, spawn children
+if self.depth < self.max_depth:
+    self.split_dim, self.split_threshold, self.gain = self.spawn_children()
+```
 
 <span class="c0">There is a check to see if the current node is at max depth. If it is then the next line is skipped over and the function returns. If the current node is not at max depth then the spawn_children() function is entered, to return a splitting dimension and threshold.</span>
 
@@ -546,59 +413,28 @@ self.best_percent = self.class_count_dict[self.best_label]/              
 
 <span class="c0">This function, and its helper functions, do the heavy lifting of the decision tree learning algorithm. First a call is made to the member function 'self.find_split()" which returns the dimension and the threshold on that dimension that partitions the data in a way that results in the smallest Gini impurity.</span>
 
-<a id="t.7327084f5f642f8ba23611eac02487409843748f"></a><a id="t.9"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1">        split_dimension, split_threshold, split_cost = self.find_split()  
-       </span><span class="c6">if</span><span class="c1">split_threshold ==</span> <span class="c6">None</span><span class="c1">:  
-           </span><span class="c6">return</span><span class="c1"> </span><span class="c6">None</span><span class="c1">,</span><span class="c6">None</span><span class="c1">,</span><span class="c6">None</span><span class="c1">  
-       self.split_threshold = split_threshold  
-       self.split_dim = split_dimension</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+        split_dimension, split_threshold, split_cost = self.find_split()
+        if split_threshold == None:
+            return None,None,None
+        self.split_threshold = split_threshold
+        self.split_dim = split_dimension
+```
 
 <span class="c0">The return value split_cost is the best impurity value found. If no splitting threshold can be found all None values are returned, signaling the decision tree to use the calling parent as the leaf node. This can be triggered by things like there not being enough samples to find a threshold based on the min samples hyperparameter. If a good split is found then the data is partitioned into less than and greater than threshold sets.</span>
 
-<a id="t.cc3c136c1e49bea7ec92e2ebefdca50dc1c2e178"></a><a id="t.10"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c19 c21"># Parse data based on above calculated split criterion</span><span class="c1">  
-       </span><span class="c21 c19"># [X,y] -> [X_l,y_l],[X_r,y_r]</span><span class="c1">left_indices = np.argwhere(self.data[:, split_dimension] <= split_threshold)  
-       left_data = self.data[left_indices[:,</span> <span class="c3">0</span><span class="c1">], :]  
-       left_labels = self.labels[left_indices[:,</span> <span class="c3">0</span><span class="c1">],</span> <span class="c3">0</span><span class="c1">]  
-       left_labels = np.atleast_2d(left_labels).T  
-       right_indices = np.argwhere(self.data[:, split_dimension] > split_threshold)  
-       right_data = self.data[right_indices[:,</span> <span class="c3">0</span><span class="c1">], :]  
-       right_labels = self.labels[right_indices[:,</span><span class="c3">0</span><span class="c1">],</span> <span class="c3">0</span><span class="c1">]  
-       right_labels = np.atleast_2d(right_labels).T</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+        # Parse data based on above calculated split criterion
+        # [X,y] -> [X_l,y_l],[X_r,y_r]
+        left_indices = np.argwhere(self.data[:, split_dimension] <= split_threshold)
+        left_data = self.data[left_indices[:, 0], :]
+        left_labels = self.labels[left_indices[:, 0], 0]
+        left_labels = np.atleast_2d(left_labels).T
+        right_indices = np.argwhere(self.data[:, split_dimension] > split_threshold)
+        right_data = self.data[right_indices[:, 0], :]
+        right_labels = self.labels[right_indices[:,0], 0]
+        right_labels = np.atleast_2d(right_labels).T
+```
 
 <span class="c0">This is where Numpy is leveraged heavily. Numpy allows us to quickly partition the data and labels by grabbing indices instead of values where conditions are met. The row indices of observations that meet the threshold criteria are captured and then the data points are collected at the same time as the labels using the indices.</span>
 
@@ -606,47 +442,29 @@ self.best_percent = self.class_count_dict[self.best_label]/              
 
 <span class="c0">Now that the data has been partitioned in either side of the threshold the recursive call to spawn children can be made.</span>
 
-<a id="t.27e097be3b021c86a4c80d5bf82757b2952d5ae2"></a><a id="t.11"></a>
+```python
+        if self.n > self.min_node_points:
 
-<table class="c7">
+            # spawn left child
+            if left_data.shape[0] > 0:
+                self.left_child = Node(data=left_data,
+                                       labels=left_labels,
+                                       impurity_metric=self.impurity_metric,
+                                       depth=self.depth + 1,
+                                       max_depth=self.max_depth,
+                                       min_node_points=self.min_node_points)
+            # spawn right child
+            if right_data.shape[0] > 0:
+                self.right_child = Node(data=right_data,
+                                        labels=right_labels,
+                                        impurity_metric=self.impurity_metric,
+                                        depth=self.depth + 1,
+                                        max_depth=self.max_depth,
+                                        min_node_points=self.min_node_points)
 
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c6">if</span><span class="c1"> self.n > self.min_node_points:  
-
-           </span><span class="c21 c19"># spawn left child</span><span class="c1">  
-           </span><span class="c6">if</span><span class="c1"> left_data.shape[</span><span class="c3">0</span><span class="c1">] ></span> <span class="c3">0</span><span class="c1">:  
-               self.left_child = Node(data=left_data,  
-                                      labels=left_labels,  
-                                      impurity_metric=self.impurity_metric,  
-                                      depth=self.depth +</span> <span class="c3">1</span><span class="c1">,  
-                                      max_depth=self.max_depth,  
-                                      min_node_points=self.min_node_points)  
-           </span><span class="c21 c19"># spawn right child</span><span class="c1">  
-           </span><span class="c6">if</span><span class="c1"> right_data.shape[</span><span class="c3">0</span><span class="c1">] ></span> <span class="c3">0</span><span class="c1">:  
-               self.right_child = Node(data=right_data,  
-                                       labels=right_labels,  
-                                       impurity_metric=self.impurity_metric,  
-                                       depth=self.depth +</span> <span class="c3">1</span><span class="c1">,  
-                                       max_depth=self.max_depth,  
-                                       min_node_points=self.min_node_points)  
-
-       </span><span class="c6">return</span><span class="c1"> split_dimension, split_threshold, split_cost</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<span class="c0"></span>
-
+        return split_dimension, split_threshold, split_cost
+```
+        
 <span class="c0">The return value here is to set the current node what the splitting dimension and threshold are that these children are beings spawned based off of. They will be used in prediction time to cascade down the tree.</span>
 
 <span class="c0"></span>
@@ -665,58 +483,26 @@ self.best_percent = self.class_count_dict[self.best_label]/              
 
 <span class="c0">The following line of code leverages NumPy to return a matrix of indices sorted by value in each dimension.</span>
 
-<a id="t.c08a0db0f49251c533a0c8a366ba93bb0a051bf5"></a><a id="t.12"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c21 c19"># get array of the size of the data but with values</span><span class="c1">  
-       </span><span class="c21 c19"># corresponding to sorted indices by column.</span><span class="c1">  
-       sorted_indices = np.argsort(self.data, axis=</span><span class="c3">0</span><span class="c1">)</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+        # get array of the size of the data but with values
+        # corresponding to sorted indices by column.
+        sorted_indices = np.argsort(self.data, axis=0)
+```
 
 <span class="c0">Now we loop through each dimension searching for its best threshold and store the best one.</span>
 
-<a id="t.fd04d66196f57dad9a56ea4f5b208ae63872d950"></a><a id="t.13"></a>
+```python
+        # for each column of sorted indices get best split
+        for dim in range(sorted_indices.shape[1]):
+            dim_indices = np.atleast_2d(sorted_indices[:, dim]).T
+            cur_impur, cur_thresh = self.single_dim_split(dim, dim_indices)
+            if cur_impur < best_impurity:
+                best_impurity = cur_impur
+                best_dimension = dim
+                best_threshold = cur_thresh
 
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c21 c19"># for each column of sorted indices get best split</span><span class="c1">  
-       </span><span class="c6">for</span><span class="c1">dim</span> <span class="c6">in</span><span class="c1"> range(sorted_indices.shape[</span><span class="c3">1</span><span class="c1">]):  
-           dim_indices = np.atleast_2d(sorted_indices[:, dim]).T  
-           cur_impur, cur_thresh = self.single_dim_split(dim, dim_indices)  
-           </span><span class="c6">if</span><span class="c1"> cur_impur < best_impurity:  
-               best_impurity = cur_impur  
-               best_dimension = dim  
-               best_threshold = cur_thresh  
-
-       </span><span class="c6">return</span><span class="c1"> best_dimension, best_threshold, best_impurity</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+        return best_dimension, best_threshold, best_impurity
+```
 
 <span class="c0">We see the call to self.single_dim_split() which is the final piece to the puzzle and will be discussed next.</span>
 
@@ -726,93 +512,44 @@ self.best_percent = self.class_count_dict[self.best_label]/              
 
 <span class="c0">The inputs to this function are the current dimension that is being analyzed and the list of indices that correspond to the data in that dimension sorted by value. First we initialize the label counts  the split so that all the count for less then the threshold is 0 and all counts are on the greater than side.</span>
 
-<a id="t.dd6df7cf78b79b4ceeae825aaf3df707153ad522"></a><a id="t.14"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c21 c19"># get the labels as a dict</span><span class="c1">  
-       left_label_counts = {l:</span><span class="c3">0</span><span class="c1"> </span><span class="c6">for</span><span class="c1">l</span> <span class="c6">in</span><span class="c1">self.class_labels}  
-       right_label_counts = {l:c</span> <span class="c6">for</span><span class="c1">l,c</span> <span class="c6">in</span><span class="c1"> zip(self.class_labels, self.class_counts)}</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+        # get the labels as a dict
+        left_label_counts = {l:0 for l in self.class_labels}
+        right_label_counts = {l:c for l,c in zip(self.class_labels, self.class_counts)}
+```
 
 <span class="c0">We then define an in function function for the calculation of the weighted Gini impurity value.</span>
 
-<a id="t.7b5dd7219a55081bfd51c3a92294aedd836908ba"></a><a id="t.15"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c6">def</span><span class="c1"> </span><span class="c29">mini_gini</span><span class="c1">(left_dict, right_dict):  
-           left_values = np.array(list(left_dict.values()))  
-           g_left =</span> <span class="c3">1.</span><span class="c1">- np.sum(np.square(left_values/np.sum(left_values)))  
-           right_values = np.array(list(right_dict.values()))  
-           g_right =</span> <span class="c3">1.</span><span class="c1"> - np.sum(np.square(right_values/sum(right_values)))  
-           total = sum(left_values) + sum(right_values)  
-           </span><span class="c6">return</span><span class="c1"> (sum(left_values)/total)*g_left + (sum(right_values)/total)*g_right</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+```python
+        def mini_gini(left_dict, right_dict):
+            left_values = np.array(list(left_dict.values()))
+            g_left = 1. - np.sum(np.square(left_values/np.sum(left_values)))
+            right_values = np.array(list(right_dict.values()))
+            g_right = 1. - np.sum(np.square(right_values/sum(right_values)))
+            total = sum(left_values) + sum(right_values)
+            return (sum(left_values)/total)*g_left + (sum(right_values)/total)*g_right
+```
 
 <span class="c0">Then, we iterate through the sorted values incrementing the count of the label we pass in the less then counts and decrementing it in the greater than counts. The weighted Gini impurity is recalculated and stored if it beats the previous best.</span>
 
-<a id="t.93777d8e367e27e31a0a15df810b20910c479596"></a><a id="t.16"></a>
+```python
+        # iterate through each sorted index updating split membership
+        for i in range(1, self.n):
+            left_val = self.data[indices[i-1, 0], dim]
+            right_val = self.data[indices[i, 0], dim]
+            left_label_counts[self.labels[indices[i-1, 0], 0]] += 1
+            right_label_counts[self.labels[indices[i-1, 0], 0]] -= 1
+            cost = mini_gini(left_label_counts, right_label_counts)
 
-<table class="c7">
+            # if split results in better purity, keep it
+            if cost < best_impurity and \
+                    self.min_node_points < i < self.n - self.min_node_points:
+                best_impurity = cost
+                best_threshold = (left_val+right_val)/2
 
-<tbody>
+        return best_impurity, best_threshold
+```
 
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c21 c19"># iterate through each sorted index updating split membership</span><span class="c1">  
-       </span><span class="c6">for</span><span class="c1">i</span> <span class="c6">in</span><span class="c1"> range(</span><span class="c3">1</span><span class="c1">, self.n):  
-           left_val = self.data[indices[i</span><span class="c3">-1</span><span class="c1">,</span> <span class="c3">0</span><span class="c1">], dim]  
-           right_val = self.data[indices[i,</span> <span class="c3">0</span><span class="c1">], dim]  
-           left_label_counts[self.labels[indices[i</span><span class="c3">-1</span><span class="c1">,</span> <span class="c3">0</span><span class="c1">],</span> <span class="c3">0</span><span class="c1">]] +=</span> <span class="c3">1</span><span class="c1">  
-           right_label_counts[self.labels[indices[i</span><span class="c3">-1</span><span class="c1">,</span> <span class="c3">0</span><span class="c1">],</span> <span class="c3">0</span><span class="c1">]] -=</span> <span class="c3">1</span><span class="c1">  
-           cost = mini_gini(left_label_counts, right_label_counts)  
-
-           </span><span class="c21 c19"># if split results in better purity, keep it</span><span class="c1">  
-           </span><span class="c6">if</span><span class="c1">cost < best_impurity</span> <span class="c6">and</span><span class="c1"> \  
-                   self.min_node_points < i < self.n - self.min_node_points:  
-               best_impurity = cost  
-               best_threshold = (left_val+right_val)/</span><span class="c3">2</span><span class="c1">  
-
-       </span><span class="c6">return</span><span class="c1"> best_impurity, best_threshold</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<span class="c0"></span>
 
 ## <span class="c5">Bagging</span>
 
@@ -822,33 +559,15 @@ self.best_percent = self.class_count_dict[self.best_label]/              
 
 #### <span>Bagging class initialization</span>
 
-<span class="c0"></span>
+```python
+class Bagging:
 
-<a id="t.8bd3c0e1eddf2884a7636c1fd498319eec2fccf2"></a><a id="t.17"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c6">class</span><span class="c1"> </span><span class="c30">Bagging</span><span class="c1">:  
-
-   </span><span class="c6">def</span><span class="c1"> </span><span class="c29">__init__</span><span class="c1">(self,  
-                data: np.ndarray,  
-                labels: np.ndarray,  
-                n_bags: int,  
-                max_features: int):</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+    def __init__(self,
+                 data: np.ndarray,
+                 labels: np.ndarray,
+                 n_bags: int,
+                 max_features: int):
+```
 
 <span class="c0">The Bagging class initialization has the same data interface as the Tree.train() method. The hyperparameters are n_bags and max_features which were discussed earlier. The user need nothing more than the data and these parameters to create the Bagging object.</span>
 
@@ -856,29 +575,13 @@ self.best_percent = self.class_count_dict[self.best_label]/              
 
 <span class="c0">All subsampling and bag generation is done upon initialization of the object. This is done with a list comprehension that generates _Bag class objects which has to be handed num_features, the number of features that the original dataset has.</span>
 
-<a id="t.61f36734ee03e60e849ef0b584548f0e117bf15e"></a><a id="t.18"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c21 c19"># list comprehension of _Bag class objects</span><span class="c1">self.bag_list = [_Bag(data_size=self.n,  
-                             num_features=self.num_features,  
-                             max_features=self.max_features)</span> <span class="c6">for</span><span class="c1">_</span> <span class="c6">in</span><span class="c1"> range(self.n_bags)]</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<span class="c0"></span>
+```python
+        # list comprehension of _Bag class objects
+        self.bag_list = [_Bag(data_size=self.n,
+                              num_features=self.num_features,
+                              max_features=self.max_features)
+                         for _ in range(self.n_bags)]
+```
 
 #### <span class="c33 c17">The _Bag subclass</span>
 
@@ -886,46 +589,29 @@ self.best_percent = self.class_count_dict[self.best_label]/              
 
 <span class="c0"></span>
 
-<a id="t.c6222e1707464db51f09d6ee7ab38879bda6d369"></a><a id="t.19"></a>
 
-<table class="c7">
+```python
+class _Bag:
 
-<tbody>
+    def __init__(self,
+                 data_size: int,
+                 num_features: int,
+                 max_features: int,
+                 bootstrap_features: bool):
 
-<tr class="c22">
+        # determine how many features will be used
+        self.n_features = np.random.randint(low=1, high=max_features+1)
 
-<td class="c2" colspan="1" rowspan="1">
+        # get the features
+        self.features = np.random.choice(range(num_features),
+                                         size=self.n_features,
+                                         replace=False)
 
-<span class="c6">class</span><span class="c1"> </span><span class="c30">_Bag</span><span class="c1">:  
-
-   </span><span class="c6">def</span><span class="c1"> </span><span class="c29">__init__</span><span class="c1">(self,  
-                data_size: int,  
-                num_features: int,  
-                max_features: int,  
-                bootstrap_features: bool):  
-
-       </span><span class="c21 c19"># determine how many features will be used</span><span class="c1">  
-       self.n_features = np.random.randint(low=</span><span class="c3">1</span><span class="c1">, high=max_features+</span><span class="c3">1</span><span class="c1">)  
-
-       </span><span class="c21 c19"># get the features</span><span class="c1">  
-       self.features = np.random.choice(range(num_features),  
-                                        size=self.n_features,  
-                                        replace=False)  
-
-       </span><span class="c21 c19"># sample index range randomly</span><span class="c1">  
-       self.indices = np.random.choice(range(data_size),  
-                                       size=data_size,  
-                                       replace=</span><span class="c6">True</span><span class="c1">)</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<span class="c0"></span>
+        # sample index range randomly
+        self.indices = np.random.choice(range(data_size),
+                                        size=data_size,
+                                        replace=True)
+```
 
 <span>The NumPy randint call determines how many features will be used in a range from 1 feature to max_features features. The NumPy choice selects the subset of features that will be used in the bag. Finally the member</span> <span class="c15">indices</span> <span class="c0">is set to be to be bootstrapped indices of the observations in the original dataset. Since all that the bag object is holding is a set of row indices and column indices the Bagging class needs to have a helper function that converts that information back into data.</span>
 
@@ -937,33 +623,17 @@ self.best_percent = self.class_count_dict[self.best_label]/              
 
 <span class="c0"></span>
 
-<a id="t.1f39125b4e72c9d85a61920f5df449a158d9f75c"></a><a id="t.20"></a>
+```python
+    def get_bag(self, bag_index: int):
+        assert(bag_index < len(self.bag_list))
+        bag = self.bag_list[bag_index]
 
-<table class="c7">
+        rows = np.atleast_2d(bag.indices).T
+        bag_data = self.data[rows, bag.features]
+        bag_labels = self.labels[bag.indices]
 
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c6">def</span><span class="c1"> </span><span class="c29">get_bag</span><span class="c1">(self, bag_index: int):  
-       </span><span class="c6">assert</span><span class="c1">(bag_index < len(self.bag_list))  
-       bag = self.bag_list[bag_index]  
-
-       rows = np.atleast_2d(bag.indices).T  
-       bag_data = self.data[rows, bag.features]  
-       bag_labels = self.labels[bag.indices]  
-
-       </span><span class="c6">return</span><span class="c1"> bag_data, bag_labels, bag.features</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+        return bag_data, bag_labels, bag.features
+```
 
 <span class="c0"></span>
 
@@ -981,120 +651,62 @@ self.best_percent = self.class_count_dict[self.best_label]/              
 
 <span>The Forest class is the Random Forest model object in this implementation. It takes all the parameters of both the</span><span class="c15"> Node()</span><span>class and the</span> <span class="c15">Bagging()</span><span> class as well as the input data.</span>
 
-<span class="c0"></span>
+```python
+class Forest:
 
-<a id="t.8afb2e7bf5a518fc8780a0567393468592324893"></a><a id="t.21"></a>
+   def __init__(self,
 
-<table class="c7">
+                # input
+                data: np.ndarray,
+                labels: np.ndarray,
 
-<tbody>
+                # bagging features
+                n_trees: int,
+                max_features: int,
+                bootstrap_features: bool,
 
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c6">class</span><span class="c1"> </span><span class="c30">Forest</span><span class="c1">:</span> <span class="c6">def</span><span class="c1"> </span><span class="c29">__init__</span><span class="c1">(self,  
-
-               # input  
-               data: np.ndarray,  
-               labels: np.ndarray,  
-
-               # bagging features  
-               n_trees: int,  
-               max_features: int,  
-               bootstrap_features: bool,  
-
-               # decision tree features  
-               max_depth: int,  
-               min_leaf_points: int,):</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<span class="c0"></span>
-
+                # decision tree features
+                max_depth: int,
+                min_leaf_points: int,):
+```       
+                
 <span class="c0">A special subclass is created called _TreeBag which holds a decision tree that was created from one of the bags. This is needed because otherwise there is no way of connecting the subset of features that were created in the bagging operation with the original dataset. In this subclass is where the decision trees are trained.</span>
 
-<span class="c0"></span>
+```python
+class _TreeBag:
 
-<a id="t.18638e858542aec04df9d43d96bc44485633bac8"></a><a id="t.22"></a>
+    def __init__(self,
+                 features: np.ndarray,
+                 data: np.ndarray,
+                 labels: np.ndarray,
+                 max_depth: int,
+                 min_leaf_points: int):
 
-<table class="c7">
+        self.features = features
 
-<tbody>
+        self.d_tree = Tree(max_depth=max_depth,
+                           min_node_points=min_leaf_points)
+        self.d_tree.train(data, labels)
 
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c6">class</span><span class="c1"> </span><span class="c30">_TreeBag</span><span class="c1">:  
-
-   </span><span class="c6">def</span><span class="c1"> </span><span class="c29">__init__</span><span class="c1">(self,  
-                features: np.ndarray,  
-                data: np.ndarray,  
-                labels: np.ndarray,  
-                max_depth: int,  
-                min_leaf_points: int):  
-
-       self.features = features  
-
-       self.d_tree = Tree(max_depth=max_depth,  
-                          min_node_points=min_leaf_points)  
-       self.d_tree.train(data, labels)  
-
-   </span><span class="c6">def</span><span class="c1"> </span><span class="c29">predict</span><span class="c1">(self, x):  
-       x_bag = x[self.features]  
-       </span><span class="c6">return</span><span class="c1"> self.d_tree.predict(x_bag)</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<span class="c0"></span>
+    def predict(self, x):
+        x_bag = x[self.features]
+        return self.d_tree.predict(x_bag)
+```
 
 <span class="c0">Now, back in the Forest initialization we use a for loop to create a list of _TreeBag objects, accessing each of the bags in the Bagging object that was created earlier in the initialization.</span>
 
-<span class="c0"></span>
-
-<a id="t.ea8bdb5e3bcb511463cf10a849e920453a68e1ad"></a><a id="t.23"></a>
-
-<table class="c7">
-
-<tbody>
-
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c21 c19"># plant a forest</span><span class="c1">  
-       self.tree_bag = []  
-       </span><span class="c6">for</span><span class="c1">i</span> <span class="c6">in</span><span class="c1"> range(len(self.bag.bag_list)):  
-           print(</span><span class="c12">"Training Tree {} / {}"</span><span class="c1">.format(i, self.n_trees))  
-           b_data, b_labels, b_features = self.bag.get_bag(i)  
-           self.tree_bag.append(_TreeBag(features=b_features,  
-                                         data=b_data,  
-                                         labels=b_labels,  
-                                         max_depth=self.max_depth,  
-                                         min_leaf_points=self.min_leaf_points))</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<span class="c0"></span>
+```python
+        # plant a forest
+        self.tree_bag = []
+        for i in range(len(self.bag.bag_list)):
+            print("Training Tree {} / {}".format(i, self.n_trees))
+            b_data, b_labels, b_features = self.bag.get_bag(i)
+            self.tree_bag.append(_TreeBag(features=b_features,
+                                          data=b_data,
+                                          labels=b_labels,
+                                          max_depth=self.max_depth,
+                                          min_leaf_points=self.min_leaf_points))
+```
 
 <span class="c0">Now we have a fully trained Random Forest classifier.</span>
 
@@ -1108,44 +720,27 @@ self.best_percent = self.class_count_dict[self.best_label]/              
 
 <span class="c0">The Forest class has a predict() function that takes an input data point and a voting style, soft or hard.</span>
 
-<a id="t.cc4035c2d57debcacb13933bd70e72a0ae34cad3"></a><a id="t.24"></a>
+```python
+    def predict(self,
+                x: np.ndarray,
+                vote: str = 'soft'):
 
-<table class="c7">
+        polls = [t.predict(x) for t in self.tree_bag]
+        tally = Counter()
+        for cls, scr in polls:
+            total = 0
+            if vote=='soft':
+                tally[cls] += scr
+                total+= scr
+            elif vote=='hard':
+                tally[cls] += 1
+                total += 1
 
-<tbody>
+        predicted_class = max(tally, key=tally.get)
+        probability = tally[predicted_class]/total
 
-<tr class="c22">
-
-<td class="c2" colspan="1" rowspan="1">
-
-<span class="c1"></span> <span class="c6">def</span><span class="c1"> </span><span class="c29">predict</span><span class="c1">(self,  
-               x: np.ndarray,  
-               vote: str =</span> <span class="c12">'soft'</span><span class="c1">):  
-
-       polls = [t.predict(x)</span> <span class="c6">for</span><span class="c1">t</span> <span class="c6">in</span><span class="c1"> self.tree_bag]  
-       tally = Counter()  
-       </span><span class="c6">for</span><span class="c1">cls, scr</span> <span class="c6">in</span><span class="c1">polls:  
-           total =</span> <span class="c3">0</span><span class="c1">  
-           </span><span class="c6">if</span><span class="c1"> vote==</span><span class="c12">'soft'</span><span class="c1">:  
-               tally[cls] += scr  
-               total+= scr  
-           </span><span class="c6">elif</span><span class="c1"> vote==</span><span class="c12">'hard'</span><span class="c1">:  
-               tally[cls] +=</span> <span class="c3">1</span><span class="c1">total +=</span> <span class="c3">1</span><span class="c1">  
-
-       predicted_class = max(tally, key=tally.get)  
-       probability = tally[predicted_class]/total  
-
-       </span><span class="c6">return</span><span class="c1"> predicted_class, probability</span>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<span class="c0"></span>
+        return predicted_class, probability
+```
 
 <span class="c0">If a hard vote style is selected each tree is given a +1 vote. If soft voting is used, each trees vote is ‘scr’, the probability that that it predicts that class with.</span>
 
