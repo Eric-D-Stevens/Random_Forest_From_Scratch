@@ -93,11 +93,17 @@
 
 <span class="c0"></span>
 
-![](images/image6.png)
+<span class="c0"></span>
+<div align="center">
+<img src="images/image6.png">
+</div>
 
 <span>Where</span> <span>is the proportion of data points that fall below the threshold</span> ![](images/image7.png)<span>on the</span> ![](images/image5.png)<span>th dimension, and</span> ![](images/image8.png)<span class="c49"> </span><span>is the Gini impurity of the data that falls below the threshold</span> ![](images/image7.png)<span>on the</span> ![](images/image5.png)<span>th dimension.</span>
 
-<span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 238.09px; height: 133.00px;">![](images/image11.png)</span>
+<span class="c0"></span>
+<div align="center">
+<img src="images/image11.png">
+</div>
 
 <span class="c0">After a dimension and threshold that minimizes the Gini impurity have been identified, the node of the current dataset stores these parameters and the two child nodes are created with their dataset consisting of the data on either side of the decided upon dimension threshold.</span>
 
