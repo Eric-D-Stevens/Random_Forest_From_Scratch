@@ -78,8 +78,6 @@
 
 <span>Where</span> ![](images/image4.png)<span>is the probability of a given data point being a member of class</span> ![](images/image5.png)<span class="c0"> given the dataset. It can be seen that Gini impurity is minimized when all data points belong to a single class.</span>
 
-<span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 325.50px; height: 183.54px;">![](images/image27.png)</span>
-
 <span class="c0"></span>
 <div align="center">
 <img src="images/image27.png">
