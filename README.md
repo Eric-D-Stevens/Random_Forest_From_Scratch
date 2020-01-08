@@ -33,8 +33,7 @@
 
 <span class="c0">In order to accomplish the goals of the project in an efficient manner, a specific project execution strategy was developed prior to the beginning of the implementation itself. This strategy has both the development of the tool and its verification wrapped into a single pipeline.</span>
 
-<span style="overflow: hidden; align: center; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 283.66px; height: 261.50px;">
-      <p align="center">![](images/image28.png)</p></span>
+<span style="text-align: center; overflow: hidden; align: center; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 283.66px; height: 261.50px;">![](images/image28.png)</span>
 
 <span class="c0">In order to enable an efficient process that encompasses both development and verification, Scikit-Learn was leveraged for both its prepackaged datasets and its verified models. When developing the algorithm library, effort was made to replicate the data interface of Scikit-Learn. This allowed datasets to be imported from Scikit-Learn and fed to the developed implementation with minimal manipulation. This also allowed that same data to be fed into the Scikit-Learn implementation of Random Forest, after which the results of the of the two implementation could be prepared.</span>
 
