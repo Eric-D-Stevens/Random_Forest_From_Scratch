@@ -269,7 +269,7 @@
 <a id="t.2ef886ea0b05000ff51c5e81ca2cee91171542d6"></a><a id="t.0"></a>
 
 
-'''python
+```python
       def __init__(self,  
                max_depth: int = 10,  
                min_node_points = 1):
@@ -278,7 +278,7 @@
       :param max_depth: maximum depth decision tree can grow  
       :param min_node_points: minimum points a leaf node can contain  
       """
-'''
+```
 
 
 
